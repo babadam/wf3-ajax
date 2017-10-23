@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <h2>AJAX GET </h2>
+        <div id="demo"></div>
+        <button type="button" id="action">Changez le contenu</button>
+
+        <script>
+            // on cible l'élément bouton du document et à chaque fois que l'on clique sur le bouton , la fonction loadDoc s'éxécutera
+            document.getElementById("action").addEventListener("click", loadDoc);
+
+            function loadDoc(){
+                var xhttp = new XMLHttpRequest(); //XMLHttpRequest permet de récupérer facilement des données via HTTP
+
+                xhttp.open("GET", "ajax_info.txt", true); // on souhaite récupérer les données du fichier ajax_info.txt, on prépare le fichier texte
+                // open est une méthode de l'objet xhttp, les arguments sont :
+                    // - GET (mode d'ouverture),
+                    // - le fichier de données qu'on récupère
+                    // - true (mode asynchrone)
+
+                xhttp.send(); // on donne l'ordre d'envoyer les données du fichier ajax_info.txt vers ajaxJsGet.html
+
+                xhttp.onreadystatechange = function(){
+                    if(xhttp.readyState == 4 && xhttp.status == 200){ // la condition if permet de contrôler que la requête est terminée et que les données sont complètement accessible
+                        document.getElementById("demo").innerHTML = xhttp.responseText;
+                        
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
