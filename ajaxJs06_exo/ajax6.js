@@ -1,7 +1,7 @@
 r = new XMLHttpRequest();
 
 
-r.open("POST", "ajax7.php", true); // on prépare le fichier PHP afin d'envoyer le prenom dont on souhaite afficher les informations
+r.open("POST", "ajax6.php", true); // on prépare le fichier PHP afin d'envoyer le prenom dont on souhaite afficher les informations
 r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 //La methode setRequestHeader() définit la valeur d'un en tête de requête HTTP.
 
